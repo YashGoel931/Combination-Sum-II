@@ -1,0 +1,23 @@
+class Solution {
+    public static void f(int ind, int[] arr, List<Integer> al, int target, List<List<Integer>> list){
+     if(ind==(arr.length)){
+       if(target==0){
+         Collections.sort(al);
+        if(!list.contains(al)) 
+         list.add(new ArrayList<Integer>(al));
+        }
+      return;
+     }
+     if(target<0) return;
+     if(arr[ind]<=target){
+     al.add(arr[ind]);
+     f(ind+1, arr, al, target-arr[ind], list);
+     al.remove(al.size()-1);}
+     f(ind+1, arr, al, target, list);
+    }
+    public List<List<Integer>> combinationSum2(int[] arr, int target) {
+    List<List<Integer>> list=new ArrayList<List<Integer>>();
+    f(0, arr, new ArrayList<Integer>(), target, list);
+    return list; 
+    }
+}
