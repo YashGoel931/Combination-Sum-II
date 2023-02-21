@@ -2,7 +2,6 @@ class Solution {
     public static void f(int ind, int[] arr, List<Integer> al, int target, List<List<Integer>> list){
      if(ind==(arr.length)){
        if(target==0){
-         Collections.sort(al);
         if(!list.contains(al)) 
          list.add(new ArrayList<Integer>(al));
         }
@@ -17,7 +16,8 @@ class Solution {
     }
     public List<List<Integer>> combinationSum2(int[] arr, int target) {
     List<List<Integer>> list=new ArrayList<List<Integer>>();
+    Arrays.sort(arr);
     f(0, arr, new ArrayList<Integer>(), target, list);
     return list; 
     }
-}
+} but time limit exceeded so make its optimize:
